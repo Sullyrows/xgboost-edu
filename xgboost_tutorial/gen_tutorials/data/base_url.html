@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XGBoost Documentation &mdash; xgboost 2.0.3 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=5a7160f0" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=61a4c737" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=44352c91"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script async="async" src="/_/static/javascript/readthedocs-doc-embed.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation Guide" href="install.html" /> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "builder": "sphinx", "canonical_url": null, "docroot": "/doc/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "index", "programming_language": "cpp", "project": "xgboost", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="/_/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#">
+            
+              <img src="https://raw.githubusercontent.com/dmlc/dmlc.github.io/master/img/logo-m/xgboost.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                stable
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building From Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">XGBoost Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu/index.html">GPU Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prediction.html">Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treemethod.html">Tree Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">Python Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R-package/index.html">R Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jvm/index.html">JVM Package</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ankane/xgb">Ruby Package</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/kongzii/SwiftXGBoost">Swift Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia.html">Julia Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">C Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c%2B%2B.html">C++ Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/index.html">Contribute to XGBoost</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">xgboost</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">XGBoost Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/dmlc/xgboost/blob/82d846bbeb83c652a0b1dff0e3519e67569c4a3d/doc/index.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="xgboost-documentation">
+<h1>XGBoost Documentation<a class="headerlink" href="#xgboost-documentation" title="Permalink to this heading"></a></h1>
+<p><strong>XGBoost</strong> is an optimized distributed gradient boosting library designed to be highly <strong>efficient</strong>, <strong>flexible</strong> and <strong>portable</strong>.
+It implements machine learning algorithms under the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting</a> framework.
+XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way.
+The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.</p>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building From Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">XGBoost Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/model.html">Introduction to Boosted Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/saving_model.html">Introduction to Model IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/learning_to_rank.html">Learning to Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/dart.html">DART booster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/monotonic.html">Monotonic Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/feature_interaction_constraint.html">Feature Interaction Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/aft_survival_analysis.html">Survival Analysis with Accelerated Failure Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/categorical.html">Categorical Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/multioutput.html">Multiple Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/rf.html">Random Forests(TM) in XGBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/kubernetes.html">Distributed XGBoost on Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://xgboost.readthedocs.io/en/latest/jvm/xgboost4j_spark_tutorial.html">Distributed XGBoost with XGBoost4J-Spark</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://xgboost.readthedocs.io/en/latest/jvm/xgboost4j_spark_gpu_tutorial.html">Distributed XGBoost with XGBoost4J-Spark-GPU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/dask.html">Distributed XGBoost with Dask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/spark_estimator.html">Distributed XGBoost with PySpark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/ray.html">Distributed XGBoost with Ray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/external_memory.html">Using XGBoost External Memory Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/c_api_tutorial.html">C API Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/input_format.html">Text Input Format of DMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/param_tuning.html">Notes on Parameter Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/custom_metric_obj.html">Custom Objective and Evaluation Metric</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu/index.html">GPU Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prediction.html">Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="treemethod.html">Tree Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python/index.html">Python Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python/python_intro.html">Python Package Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/sklearn_estimator.html">Using the Scikit-Learn Estimator Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/python_api.html">Python API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/callbacks.html">Callback Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/examples/index.html">XGBoost Python Feature Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/dask-examples/index.html">XGBoost Dask Feature Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/survival-examples/index.html">Survival Analysis Walkthrough</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/gpu-examples/index.html">GPU Acceleration Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python/rmm-examples/index.html">Using XGBoost with RAPIDS Memory Manager (RMM) plugin (EXPERIMENTAL)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="R-package/index.html">R Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="R-package/xgboostPresentation.html">Introduction to XGBoost in R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="R-package/discoverYourData.html">Understanding your dataset with XGBoost</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jvm/index.html">JVM Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jvm/java_intro.html">Getting Started with XGBoost4J</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/xgboost4j_spark_tutorial.html">XGBoost4J-Spark Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/xgboost4j_spark_gpu_tutorial.html">XGBoost4J-Spark-GPU Tutorial</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/jvm-packages/xgboost4j-example">Code Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/javadocs/index.html">XGBoost4J Java API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/scaladocs/xgboost4j/index.html">XGBoost4J Scala API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/scaladocs/xgboost4j-spark/index.html">XGBoost4J-Spark Scala API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jvm/scaladocs/xgboost4j-flink/index.html">XGBoost4J-Flink Scala API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/ankane/xgb">Ruby Package</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/kongzii/SwiftXGBoost">Swift Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="julia.html">Julia Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">C Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c%2B%2B.html">C++ Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">CLI Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrib/index.html">Contribute to XGBoost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contrib/community.html">Community Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/donate.html">Donations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/coding_guide.html">Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/python_packaging.html">Notes on packaging XGBoost’s Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/unit_tests.html">Adding and running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/docs.html">Docs and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/git_guide.html">Git Workflow Howtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/release.html">XGBoost Release Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contrib/ci.html">Automated testing in XGBoost project</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, xgboost developers.
+      <span class="commit">Revision <code>82d846bb</code>.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+          <dd><a href="/en/release_1.7.0/">release_1.7.0</a></dd>
+        
+          <dd><a href="/en/release_1.6.0/">release_1.6.0</a></dd>
+        
+          <dd><a href="/en/release_1.5.0/">release_1.5.0</a></dd>
+        
+          <dd><a href="/en/release_1.4.0/">release_1.4.0</a></dd>
+        
+          <dd><a href="/en/release_1.3.0/">release_1.3.0</a></dd>
+        
+          <dd><a href="/en/release_1.2.0/">release_1.2.0</a></dd>
+        
+          <dd><a href="/en/release_1.1.0/">release_1.1.0</a></dd>
+        
+          <dd><a href="/en/release_1.0.0/">release_1.0.0</a></dd>
+        
+          <dd><a href="/en/release_0.90/">release_0.90</a></dd>
+        
+          <dd><a href="/en/release_0.82/">release_0.82</a></dd>
+        
+          <dd><a href="/en/release_0.81/">release_0.81</a></dd>
+        
+          <dd><a href="/en/release_0.80/">release_0.80</a></dd>
+        
+          <dd><a href="/en/release_0.72/">release_0.72</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//xgboost.readthedocs.io/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+      </dl>
+      <dl>
+        
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/xgboost/?fromdocs=xgboost">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/xgboost/?fromdocs=xgboost">Builds</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+<script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -10,11 +10,18 @@ python = "^3.10"
 scikit-learn = "^1.4.1.post1"
 xgboost = "^2.0.3"
 pandas = "^2.2.1"
+tomli = "^2.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
 ipykernel = "^6.29.4"
+tqdm = "^4.66.2"
+
+[tool.poetry.group.docs.dependencies]
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+pandoc = "^2.3"
 
 [build-system]
 requires = ["poetry-core"]

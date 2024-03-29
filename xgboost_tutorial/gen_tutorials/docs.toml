@@ -1,0 +1,6 @@
+[doc-pages]
+parameters="https://xgboost.readthedocs.io/en/stable/parameter.html"
+gpu_support="https://xgboost.readthedocs.io/en/stable/gpu/index.html"
+faw="https://xgboost.readthedocs.io/en/stable/faq.html"
+tutorials="https://xgboost.readthedocs.io/en/stable/tutorials/index.html"
+
